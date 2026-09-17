@@ -195,28 +195,7 @@ Director ×3 means director similarity contributes 3× more than language ×1 in
 We save the similarity matrix with pickle so the Flask server doesn't need to retrain the model on every startup — it just loads the precomputed results in milliseconds.
 
 ---
-
-### Q7. What are the limitations of this system?
-**A:**
-1. **Cold start for new movies** — a newly released film with no feature data can't be recommended
-2. **No personalization** — every user who picks the same movie gets identical recommendations
-3. **Feature quality** — recommendation quality depends entirely on how well features capture a movie's essence
-4. **No user feedback loop** — the model doesn't improve from user behavior
-5. **Dataset size** — with only 100 movies, the diversity of recommendations is limited
-
-**Improvements:** Add collaborative filtering (hybrid system), user login, implicit feedback tracking, and expand the dataset.
-
 ---
-
-### Q8. How would you deploy this to production?
-**A:**
-1. Replace Flask's dev server with **Gunicorn** (production WSGI server)
-2. Use **Nginx** as a reverse proxy
-3. Deploy on **AWS EC2 / Heroku / Render**
-4. Store model files in **AWS S3** instead of local disk
-5. Add **caching** (Redis) for popular movie queries
-6. Use **Docker** to containerize the application
-
 ---
 
 ## 🛠 Tech Stack
